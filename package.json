@@ -1,0 +1,30 @@
+{
+  "name": "rubbing",
+  "version": "1.0.0",
+  "description": "wechat mini program canvas draw tool.",
+  "miniprogram": "dist",
+  "scripts": {
+    "build": "unbuild",
+    "watch": "unbuild --stub"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/copofe/rubbing.git"
+  },
+  "keywords": [
+    "wechat",
+    "mini-program",
+    "canvas"
+  ],
+  "author": "copofe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/copofe/rubbing/issues"
+  },
+  "homepage": "https://github.com/copofe/rubbing#readme",
+  "devDependencies": {
+    "@types/wechat-miniprogram": "^3.4.1",
+    "unbuild": "^1.2.1"
+  },
+  "type": "module"
+}
