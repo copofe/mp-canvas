@@ -1,3 +1,4 @@
+import { OutputOptions } from 'rollup'
 import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
@@ -11,4 +12,17 @@ export default defineBuildConfig({
     },
   },
   declaration: true,
+  hooks: {
+    'rollup:options': (ctx, option) => {
+      ;(option.output as OutputOptions[]).push({
+        name: 'index',
+        dir: ctx.options.outDir,
+        format: 'iife',
+        exports: 'auto',
+        preferConst: true,
+        externalLiveBindings: false,
+        freeze: false,
+      })
+    },
+  },
 })
