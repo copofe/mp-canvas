@@ -14,7 +14,6 @@ export class Ellipse extends RShape<EllipseProps> {
   }
 
   render(ctx: CanvasRenderingContext2D) {
-    console.log(this)
     const left = this.xDpr(this.left)
     const top = this.xDpr(this.top)
     const rx = this.xDpr(this.rx)

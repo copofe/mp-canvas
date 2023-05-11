@@ -1,12 +1,11 @@
 import { Rubbing } from './canvas'
-import { CanvasElement } from './types'
 
 type RObjectProps<T extends Record<string, any>> = T & {
-  nDpr: number
+  nDpr?: number
 }
 
 export class RObject<T extends Record<string, any>> {
-  nDpr: number
+  nDpr = 1
   left: number
   top: number
   width: number

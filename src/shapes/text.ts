@@ -6,17 +6,16 @@ export class Text extends RShape<TextProps> {
   fontFamily = 'system-ui' // font family
   fontWeight = 'normal' // font weight
   fontSize = 12 // font size
-  underline = false // if text is underlined
-  overline = false // if text has a line over it
-  linethrough = false // if text has a line through it
+  underline = false // TODO:
+  overline = false // TODO:
+  linethrough = false // TODO:
   textAlign: CanvasTextAlign = 'left' // text align
   textBaseline: CanvasTextBaseline = 'top' // text baseline
   fontStyle = 'normal' // font style
   lineHeight = 14 // line height for the text
-  textBackgroundColor = '' // background color for the text
-  charSpacing = 0 // character spacing for text
-  direction: CanvasDirection = 'ltr' // text direction
-  lineClamp = 0 // maximum number of lines to display
+  charSpacing = 0 // TODO: character spacing for text
+  direction: CanvasDirection = 'ltr' // TODO: text direction
+  lineClamp = 0 // maximum number of lines to display, if overflow and value is Greater than zero, ellipsis will be displayed
 
   width = Infinity // maximum width for the text
 
@@ -39,7 +38,6 @@ export class Text extends RShape<TextProps> {
     ctx.textBaseline = 'top'
     ctx.textAlign = this.textAlign
     ctx.direction = this.direction
-    ctx.fillStyle = this.textBackgroundColor
     ;([this.text] as string[]).forEach((n, i) => {
       // iterate through each line of text
       let start = 0 // starting index for the substring

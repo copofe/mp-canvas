@@ -2,10 +2,9 @@ import { Gradient } from './gradient'
 import { RObject } from './object'
 import { CanvasElement, RubbingShapeProps, Shadow } from './types'
 
-export class RShape<T extends RubbingShapeProps = RubbingShapeProps>
-  extends RObject<T>
-  implements RubbingShapeProps
-{
+export class RShape<
+  T extends RubbingShapeProps = RubbingShapeProps,
+> extends RObject<T> {
   top = 0
   left = 0
   width = 0

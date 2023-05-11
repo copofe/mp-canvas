@@ -1,33 +1,28 @@
 import { Gradient } from './gradient'
 import { RObject } from './object'
-import { shapeHandler } from './shapes/handler'
+import { shapeHandler } from './shapes'
 import { Rect } from './shapes/rect'
-import { CanvasElement, RObjectProps, ShapeObject } from './types'
+import { CanvasElement, ShapeObject } from './types'
 import { isWeb } from './utils/env'
 
-export interface RubbingOptions extends RObjectProps {
+export interface RubbingOptions {
   /**
-   * Selector of the element.
+   * Selector of the canvas element.
    */
   selector: string
 
   /**
-   * Width.
+   * Canvas width.
    */
   width: number
 
   /**
-   * Design width.
-   */
-  designWidth: number
-
-  /**
-   * Height.
+   * Canvas height.
    */
   height: number
 
   /**
-   * Radius.
+   * Canvas Radius.
    */
   radius?: number
 
@@ -35,12 +30,6 @@ export interface RubbingOptions extends RObjectProps {
    * Background color.
    */
   background?: string | Gradient
-
-  /**
-   * Whether to adapt to Retina screens. Auto-enabled for WeChat miniprogram.
-   * @default true
-   */
-  enableRetinaScaling?: boolean
 
   /**
    * Whether to use image smoothing for the canvas.
@@ -54,63 +43,31 @@ export interface RubbingOptions extends RObjectProps {
    * @description Required in WeChat miniprogram custom components.
    */
   component?: WechatMiniprogram.Component.Instance<any, any, any>
-
-  serialized: [] // Serialized array is empty by default.
 }
 
 const RubbingOptionsDefaultValue: Partial<RubbingOptions> = {
   background: 'transparent', // Default background color is transparent.
-  enableRetinaScaling: true, // Default to enable Retina display adaptation.
   imageSmoothingEnabled: true, // Default to enable image smoothing.
   width: 0,
-  designWidth: 0,
   height: 0,
   radius: 0,
 }
 
 export class Rubbing extends RObject<RubbingOptions> {
   selector: string
-  /**
-   * Background color.
-   */
+
   background?: string | Gradient
 
-  /**
-   * Whether to use image smoothing. Default enabled in browser.
-   * @default true
-   */
   imageSmoothingEnabled?: boolean
 
   enableRetinaScaling: boolean
 
-  /**
-   * Width.
-   */
-  width: number
-
-  /**
-   * Design width.
-   */
-  designWidth: number
-
-  /**
-   * Height.
-   */
-  height: number
-
-  /**
-   * Radius.
-   */
   radius?: number
 
   dpr: number
 
   canvas: CanvasElement
 
-  /**
-   * Customized component this.
-   * @description Required in WeChat miniprogram custom components.
-   */
   component: WechatMiniprogram.Component.Instance<any, any, any>
 
   isRendering = 0
@@ -118,23 +75,12 @@ export class Rubbing extends RObject<RubbingOptions> {
   serialized: any[] // Store serialized Shape objects.
 
   constructor(option: RubbingOptions) {
-    super(option)
     const opt = {
       ...RubbingOptionsDefaultValue,
       ...option,
     }
-
-    this.background = opt.background
-    this.imageSmoothingEnabled = opt.imageSmoothingEnabled
-    this.width = opt.width
-    this.height = opt.height
-    this.designWidth = opt.designWidth || opt.width
-    this.radius = opt.radius
-    this.component = opt.component
-    this.selector = opt.selector
-    this.dpr = isWeb
-      ? window.devicePixelRatio
-      : wx.getSystemInfoSync().pixelRatio
+    super(opt)
+    this.setOptions(opt)
   }
 
   /**
@@ -143,7 +89,8 @@ export class Rubbing extends RObject<RubbingOptions> {
   async init() {
     const res = await this.queryCanvas()
     this.canvas = res
-    this.ctx = res.getContext('2d')
+    // @ts-ignore
+    this.ctx = (isWeb ? res : res.node).getContext('2d')
     this.retinaScale()
   }
 
@@ -192,12 +139,12 @@ export class Rubbing extends RObject<RubbingOptions> {
       // Running in WeChat miniprogram environment.
       const systemInfo = wx.getSystemInfoSync()
       // Calculate scaling ratio for Retina display.
-      this.nDpr = (this.dpr * systemInfo.screenWidth) / this.designWidth
-      // Adapt canvas size to design width and adjust actual display size according to Retina scaling ratio.
-      this.canvas.width =
-        (this.width / systemInfo.screenWidth / this.dpr) * this.designWidth
-      this.canvas.height =
-        (this.height / systemInfo.screenWidth / this.dpr) * this.designWidth
+      this.dpr = systemInfo.pixelRatio
+      this.nDpr = this.dpr
+      // @ts-ignore
+      this.canvas.node.width = this.canvas.width * this.dpr
+      // @ts-ignore
+      this.canvas.node.height = this.canvas.height * this.dpr
     }
   }
 

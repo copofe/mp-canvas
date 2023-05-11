@@ -13,16 +13,29 @@ export default defineBuildConfig({
   },
   declaration: true,
   hooks: {
-    'rollup:options': (ctx, option) => {
-      ;(option.output as OutputOptions[]).push({
-        name: 'index',
-        dir: ctx.options.outDir,
-        format: 'iife',
-        exports: 'auto',
-        preferConst: true,
-        externalLiveBindings: false,
-        freeze: false,
-      })
+    'rollup:build'(ctx, r) {
+      let x = r.write
+      r.write = async function (outputOptions) {
+        function replaceCjs(str: string) {
+          if (str.endsWith('.cjs')) {
+            return str.replace(/^(.*)\.cjs$/, '$1.js')
+          }
+          return str
+        }
+
+        if (typeof outputOptions.entryFileNames === 'function') {
+          const ofn = outputOptions.entryFileNames
+          outputOptions.entryFileNames = function (chunkInfo) {
+            const res = ofn(chunkInfo)
+            return replaceCjs(res)
+          }
+        } else if (typeof outputOptions.entryFileNames === 'string') {
+          outputOptions.entryFileNames = replaceCjs(
+            outputOptions.entryFileNames,
+          )
+        }
+        return x.call(null, outputOptions)
+      }
     },
   },
 })

@@ -18,7 +18,7 @@
   <canvas id="canvas"></canvas>
 </body>
 <script type="module">
-  import Rubbing from './dist/index.mjs'
+  import Rubbing from '../dist/index.mjs'
 
   const rubbing = new Rubbing({
     selector: '#canvas',
@@ -33,7 +33,6 @@
     // },
     width: 350,
     height: 500,
-    designWidth: 750,
     radius: 20,
   })
   rubbing.init().then(() => {

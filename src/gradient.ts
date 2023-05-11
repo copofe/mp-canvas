@@ -1,6 +1,7 @@
 import { Color } from './color'
 import { RObject } from './object'
 import { ColorStop, Coords, GradientProps, GradientType } from './types'
+import { isWeb } from './utils/env';
 
 export class Gradient extends RObject<GradientProps> {
   type: GradientType
@@ -23,7 +24,6 @@ export class Gradient extends RObject<GradientProps> {
 
     // Decide between linear and radial gradient
     if (this.type === 'linear') {
-      console.log(this)
       gradient = ctx.createLinearGradient(
         this.xDpr(x1),
         this.xDpr(y1),
@@ -31,7 +31,6 @@ export class Gradient extends RObject<GradientProps> {
         this.xDpr(y2),
       )
     } else {
-      // TODO: miniprogram don't support?
       gradient = ctx.createRadialGradient(
         this.xDpr(x1),
         this.xDpr(y1),

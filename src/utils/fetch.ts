@@ -5,7 +5,7 @@ export const loadImage = async (
   url: string,
   canvas?: CanvasElement,
 ): Promise<{
-  img: HTMLImageElement | WechatMiniprogram.Image
+  img: CanvasImageSource
   width: number
   height: number
 }> => {
@@ -21,7 +21,8 @@ export const loadImage = async (
       if (!canvas) {
         throw new Error('canvas is undefined')
       }
-      const image = (canvas as WechatMiniprogram.Canvas).createImage()
+      // @ts-ignore
+      const image = canvas.node.createImage()
       image.src = url
 
       wx.getImageInfo({

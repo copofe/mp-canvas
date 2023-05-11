@@ -329,7 +329,6 @@ export interface TextProps extends RubbingShapeProps {
   textBaseline: CanvasTextBaseline
   fontStyle: string
   lineHeight: number
-  textBackgroundColor: string
   charSpacing: number
   direction: CanvasDirection
 }
@@ -337,21 +336,6 @@ export interface TextProps extends RubbingShapeProps {
 export interface ImageProps extends RubbingShapeProps {
   src: string
   radius: number
-  mode:
-    | 'scaleToFill'
-    | 'aspectFit'
-    | 'aspectFill'
-    | 'widthFix'
-    | 'heightFix'
-    | 'top'
-    | 'bottom'
-    | 'center'
-    | 'left'
-    | 'right'
-    | 'top left'
-    | 'top right'
-    | 'bottom left'
-    | 'bottom right'
 }
 
 export interface LineStyle {
