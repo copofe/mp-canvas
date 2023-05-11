@@ -1,10 +1,9 @@
 {
   "name": "rubbing",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "wechat mini program canvas draw tool.",
   "scripts": {
-    "build": "unbuild",
-    "release": "np"
+    "build": "unbuild"
   },
   "repository": {
     "type": "git",

@@ -1,2 +1,0 @@
-<!--index.wxml-->
-<canvas id="canvas" type="2d" style="width:311px;height:484px" />
