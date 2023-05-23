@@ -92,6 +92,10 @@ export class Rubbing extends RObject<RubbingOptions> {
     // @ts-ignore
     this.ctx = (isWeb ? res : res.node).getContext('2d')
     this.retinaScale()
+    return {
+      canvas: res,
+      context: this.ctx
+    }
   }
 
   /**
@@ -182,10 +186,10 @@ export class Rubbing extends RObject<RubbingOptions> {
   }
 
   async _renderObjects(ctx: CanvasRenderingContext2D, objects: any[]) {
-    for (let i = 0; i < objects.length; i++) {
-      // Render all Shape objects.
-      objects[i] && (await objects[i].render(ctx))
-    }
+    // Render all Shape objects.
+    objects.forEach(async (object) => {
+      await object.render(ctx)
+    })
   }
 
   renderCanvas(ctx: CanvasRenderingContext2D) {

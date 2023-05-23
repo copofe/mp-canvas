@@ -18,12 +18,6 @@ export class Circle extends RShape<CircleProps> implements CircleProps {
   /** The end angle of the circle. */
   endAngle = 360
 
-  /** The left offset of the circle relative to the canvas. */
-  left = 0
-
-  /** The top offset of the circle relative to the canvas. */
-  top = 0
-
   /**
    * Initializes a new instance of the Circle class.
    * @param opt Options that can be applied to the circle.

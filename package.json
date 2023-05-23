@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "description": "wechat mini program canvas draw tool.",
   "scripts": {
-    "build": "unbuild"
+    "build": "unbuild",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "repository": {
     "type": "git",
@@ -22,7 +25,8 @@
   "homepage": "https://github.com/copofe/rubbing#readme",
   "devDependencies": {
     "@types/wechat-miniprogram": "^3.4.1",
-    "unbuild": "^1.2.1"
+    "unbuild": "^1.2.1",
+    "vitepress": "^1.0.0-alpha.75"
   },
   "miniprogram": "dist",
   "type": "module",

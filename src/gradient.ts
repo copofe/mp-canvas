@@ -1,7 +1,6 @@
 import { Color } from './color'
 import { RObject } from './object'
 import { ColorStop, Coords, GradientProps, GradientType } from './types'
-import { isWeb } from './utils/env';
 
 export class Gradient extends RObject<GradientProps> {
   type: GradientType
