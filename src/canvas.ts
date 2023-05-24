@@ -187,19 +187,10 @@ export class Rubbing extends RObject<RubbingOptions> {
 
   async _renderObjects(ctx: CanvasRenderingContext2D, objects: any[]) {
     // Render all Shape objects.
-    return new Promise((resolve, reject) => {
-      objects.forEach(async (object, i) => {
-        try {
-          await object.render(ctx)
-          if (i === objects.length - 1) {
-            // @ts-ignore
-            resolve()
-          }
-        } catch (error) {
-          reject(error)
-        }
-      })
-    })
+    for (let index = 0; index < objects.length; index++) {
+      const object = objects[index];
+      await object.render(ctx)
+    }
   }
 
   async renderCanvas(ctx: CanvasRenderingContext2D) {
