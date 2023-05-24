@@ -1,3 +1,4 @@
-import { Rubbing } from './canvas'
+import { Rubbing, RubbingOptions } from './canvas'
+export * from './types'
 
-export { Rubbing };
+export { Rubbing, RubbingOptions };

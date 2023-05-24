@@ -1,6 +1,5 @@
 /// <reference types="wechat-miniprogram" />
 
-import { Rubbing } from './canvas'
 import type { Gradient } from './gradient'
 
 interface NominalTag<T> {

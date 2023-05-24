@@ -187,30 +187,28 @@ export class Rubbing extends RObject<RubbingOptions> {
 
   async _renderObjects(ctx: CanvasRenderingContext2D, objects: any[]) {
     // Render all Shape objects.
-    objects.forEach(async (object) => {
-      await object.render(ctx)
-    })
+    await Promise.all(objects.map(object => object.render(ctx)))
   }
 
-  renderCanvas(ctx: CanvasRenderingContext2D) {
+  async renderCanvas(ctx: CanvasRenderingContext2D) {
     // Render canvas, specify context object.
     this.clearContext(ctx)
 
     ctx.save()
     // Pass all serialized Shape objects, and render them in order of z-index.
-    this._renderObjects(ctx, this.serialized)
+    await this._renderObjects(ctx, this.serialized)
     ctx.restore()
   }
 
-  renderAll() {
+  async renderAll() {
     // Render the entire canvas by calling the renderCanvas method
-    this.renderCanvas(this.ctx)
+    await this.renderCanvas(this.ctx)
   }
 
-  serialize(shapes: ShapeObject[]) {
+  async serialize(shapes: ShapeObject[]) {
     // Sorts an array of all shapes of Rubbing instance by z-index and converts them into a new array _serialized to render them in order in the future.
     const _shapes = shapes
-      .map((n) => ({ ...n, zIndex: n.zIndex || 0 }))
+      .map((n, i) => ({ ...n, zIndex: n.zIndex || i }))
       .sort((n, m) => n.zIndex - m.zIndex)
 
     // Generate new ShapeObjects from array elements, based on the corresponding shape definition
@@ -222,11 +220,11 @@ export class Rubbing extends RObject<RubbingOptions> {
     // Record the serialized data for future reference and rendering
     this.serialized = serialized
     // Render the canvas again
-    this.renderAll()
+    await this.renderAll()
   }
 
-  loadFromJSON(json: { objects: ShapeObject[] }) {
+  async loadFromJSON(json: { objects: ShapeObject[] }) {
     // Re-serialize all shape objects and re-render after the structure of the canvas changes
-    this.serialize(json.objects)
+    await this.serialize(json.objects)
   }
 }
