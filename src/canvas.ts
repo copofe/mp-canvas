@@ -94,7 +94,7 @@ export class Rubbing extends RObject<RubbingOptions> {
     this.retinaScale()
     return {
       canvas: res,
-      context: this.ctx
+      context: this.ctx,
     }
   }
 
@@ -187,7 +187,19 @@ export class Rubbing extends RObject<RubbingOptions> {
 
   async _renderObjects(ctx: CanvasRenderingContext2D, objects: any[]) {
     // Render all Shape objects.
-    await Promise.all(objects.map(object => object.render(ctx)))
+    return new Promise((resolve, reject) => {
+      objects.forEach(async (object, i) => {
+        try {
+          await object.render(ctx)
+          if (i === objects.length - 1) {
+            // @ts-ignore
+            resolve()
+          }
+        } catch (error) {
+          reject(error)
+        }
+      })
+    })
   }
 
   async renderCanvas(ctx: CanvasRenderingContext2D) {
