@@ -25,17 +25,21 @@ export const loadImage = async (
       const image = canvas.node.createImage()
       image.src = url
 
-      wx.getImageInfo({
-        src: url,
-        success: (res) => {
-          resolve({
-            img: image,
-            width: res.width,
-            height: res.height,
-          })
-        },
-        fail: reject,
-      })
+      image.onload = () => {
+        wx.getImageInfo({
+          src: url,
+          success: (res) => {
+            resolve({
+              img: image,
+              width: res.width,
+              height: res.height,
+            })
+          },
+          fail: reject,
+        })
+      }
+
+      image.onerror = reject
     }
   })
 }
