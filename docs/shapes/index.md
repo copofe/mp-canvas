@@ -11,7 +11,7 @@
 | top      | y 轴距离    | `number`                                | true     | 0        |
 | width    | 宽度        | `number`                                | true     | 0        |
 | height   | 高度        | `number`                                | true     | 0        |
-| fill     | 填充        | `string` &#124; [`Gradient`](#gradient) | true     | -        |
+| fill     | 填充        | `string` &#124; [`Gradient`](#gradient) | false     | -        |
 | zIndex   | 层叠顺序    | `number`                                | false    | 自身索引 |
 | visible  | 是否可见    | `boolean`                               | false    | true     |
 

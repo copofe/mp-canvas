@@ -2,7 +2,7 @@
 
 | Property    | Description                      | Type                                      | Required | Default   |
 | ----------- | -------------------------------- | ----------------------------------------- | -------- | --------- |
-| text        | text content                     | `string`                                  | false    | ''        |
+| text        | text content                     | `string`                                  | true    | ''        |
 | fontFamily  | font family                      | `string`                                  | false    | system-ui |
 | fontWeight  | font weight                      | `string`                                  | false    | normal    |
 | fontSize    | font size                        | `number`                                  | false    | 12        |

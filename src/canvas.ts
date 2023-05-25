@@ -226,7 +226,7 @@ export class Rubbing extends RObject<RubbingOptions> {
     await this.renderAll()
   }
 
-  async loadFromJSON(json: { objects: ShapeObject[] }) {
+  async loadFrom(json: { objects: ShapeObject[] }) {
     // Re-serialize all shape objects and re-render after the structure of the canvas changes
     await this.serialize(json.objects)
   }
