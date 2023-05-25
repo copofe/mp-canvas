@@ -36,9 +36,9 @@ rubbing.loadFrom({
 
 ## Methods
 
-| Method   | Description  | Parameters                             | Required | Default |
-| -------- | ------------ | -------------------------------------- | -------- | ------- |
-| loadFrom | 加载图形数据 | `({ objects: ShapeObject[] }) => void` | true     | -       |
+| Method   | Description  | Parameters                                      | Required | Default |
+| -------- | ------------ | ----------------------------------------------- | -------- | ------- |
+| loadFrom | 加载图形数据 | `({ objects: ShapeObject[] }) => Promise<void>` | true     | -       |
 
 ## Types
 
