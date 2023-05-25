@@ -34,10 +34,10 @@ rubbing.loadFrom({
 
 ## Methods
 
-| Method   | Description | Parameters                   | Return                                                         |
-| -------- | ----------- | ---------------------------- | -------------------------------------------------------------- |
-| init     | 初始化      | -                            | `{ canvas: CanvasElement, context: CanvasRenderingContext2D }` |
-| loadFrom | 加载图形    | `{ objects: ShapeObject[] }` | `Promise<void>`                                                |
+| Method   | Description | Parameters                   | Return                                                                  |
+| -------- | ----------- | ---------------------------- | ----------------------------------------------------------------------- |
+| init     | 初始化      | -                            | `Promise<{ canvas: CanvasElement, context: CanvasRenderingContext2D }>` |
+| loadFrom | 加载图形    | `{ objects: ShapeObject[] }` | `Promise<void>`                                                         |
 
 ## 图形对象
 
