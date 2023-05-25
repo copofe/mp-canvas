@@ -56,12 +56,12 @@
   {
     type: 'radial',
     coords: {
-      x1: number, // 径向内圆原点 x 轴坐标
-      y1: number, // 径向内圆原点 y 轴坐标
-      x2: number, // 径向外圆原点 x 轴坐标
-      y2: number, // 径向外圆原点 y 轴坐标
-      r1: number, // 径向内圆半径
-      r2: number, // 径向外圆半径
+      x1: number, // 内圆原点 x 轴坐标
+      y1: number, // 内圆原点 y 轴坐标
+      x2: number, // 外圆原点 x 轴坐标
+      y2: number, // 外圆原点 y 轴坐标
+      r1: number, // 内圆半径
+      r2: number, // 外圆半径
     },
   }
   ```

@@ -7,7 +7,7 @@ npm install rubbing
 ```
 
 ::: tip
-默认您了解如何在小程序中使用 npm，相关文档参见 [小程序使用npm](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)
+默认您了解如何在小程序中使用 npm package，相关文档参见 [小程序使用 npm 包](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)
 :::
 
 ## 引入

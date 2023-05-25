@@ -93,7 +93,8 @@ export class Rubbing extends RObject<RubbingOptions> {
     this.ctx = (isWeb ? res : res.node).getContext('2d')
     this.retinaScale()
     return {
-      canvas: res,
+      // @ts-ignore
+      canvas: isWeb ? res : res.node,
       context: this.ctx,
     }
   }
@@ -211,6 +212,7 @@ export class Rubbing extends RObject<RubbingOptions> {
   async serialize(shapes: ShapeObject[]) {
     // Sorts an array of all shapes of Rubbing instance by z-index and converts them into a new array _serialized to render them in order in the future.
     const _shapes = shapes
+      .filter((n) => !(n.visible === false))
       .map((n, i) => ({ ...n, zIndex: n.zIndex || i }))
       .sort((n, m) => n.zIndex - m.zIndex)
 
@@ -226,8 +228,8 @@ export class Rubbing extends RObject<RubbingOptions> {
     await this.renderAll()
   }
 
-  async loadFrom(json: { objects: ShapeObject[] }) {
+  async loadFrom(params: { objects: ShapeObject[] }) {
     // Re-serialize all shape objects and re-render after the structure of the canvas changes
-    await this.serialize(json.objects)
+    await this.serialize(params.objects)
   }
 }
