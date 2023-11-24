@@ -21,6 +21,63 @@ rubbing.loadFrom({
 })
 ```
 
+## 示例
+
+<canvas id="canvas"></canvas>
+
+<script>
+  import('/index.mjs').then(async ({ Rubbing }) => {
+    const rubbing = new Rubbing({
+      selector: '#canvas',
+      background: '#f9fafb',
+      width: 300,
+      height: 100,
+    })
+    await rubbing.init()
+    rubbing.loadFrom({
+      objects: [
+        {
+          type: 'text',
+          text: '🎉 Rubbing!',
+          left: 0,
+          top: 50,
+          fontSize: 16,
+          fill: '#7c3aed',
+          width: 300,
+          textAlign: 'center',
+        },
+      ],
+    })
+  })
+</script>
+
+::: details Source Code
+
+```js
+const rubbing = new Rubbing({
+  selector: '#canvas',
+  background: '#fff',
+  width: 300,
+  height: 100,
+})
+await rubbing.init()
+rubbing.loadFrom({
+  objects: [
+    {
+      type: 'text',
+      text: '🎉 Rubbing!',
+      left: 0,
+      top: 50,
+      fontSize: 16,
+      fill: '#7c3aed',
+      width: 300,
+      textAlign: 'center',
+    },
+  ],
+})
+```
+:::
+
 ## Options
 
 | Property   | Description                 | Type                 | Required | Default     |
@@ -37,7 +94,7 @@ rubbing.loadFrom({
 | Method   | Description | Parameters                   | Return                                                                  |
 | -------- | ----------- | ---------------------------- | ----------------------------------------------------------------------- |
 | init     | 初始化      | -                            | `Promise<{ canvas: CanvasElement, context: CanvasRenderingContext2D }>` |
-| loadFrom | 加载图形    | `{ objects: ShapeObject[] }` | `Promise<void>`                                                         |
+| loadFrom | 加载图形    | `{ objects: `[`ShapeObject`](/shapes/)`[] }` | `Promise<void>`                                                         |
 
 ## 图形对象
 

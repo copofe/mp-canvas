@@ -5,6 +5,12 @@ export default defineConfig({
   title: 'Rubbing',
   description: 'across platform canvas render tool',
   lang: 'zh-CN',
+  head: [
+    [
+      'script',
+      { async: '', src: 'https://unpkg.com/browse/rubbing@latest/dist/index.js' }
+    ]
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -39,6 +45,7 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/copofe/rubbing' },
+      { icon: 'twitter', link: 'https://twitter.com/Shinji_Zl' },
     ],
   },
 })

@@ -10,4 +10,4 @@
 
 💡配置式写法，Object/JSON 数据格式声明
 
-💡对齐 Fabric，可复用 Fabric 导出数据
+💡极小体积，压缩后仅不足4kb

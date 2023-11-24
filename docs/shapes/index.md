@@ -4,16 +4,13 @@
 
 ## 图形基础属性
 
-| Property | Description   | Type                                    | Required | Default  |
-| -------- | ------------- | --------------------------------------- | -------- | -------- |
-| type     | 类型          | [`ShapeType`](#shapetype)               | true     | -        |
-| left     | x 轴距离      | `number`                                | true     | 0        |
-| top      | y 轴距离      | `number`                                | true     | 0        |
-| width    | 宽度          | `number`                                | true     | 0        |
-| height   | 高度          | `number`                                | true     | 0        |
-| fill     | 填充/文字颜色 | `string` &#124; [`Gradient`](#gradient) | false    | -        |
-| zIndex   | 层叠顺序      | `number`                                | false    | 自身索引 |
-| visible  | 是否可见      | `boolean`                               | false    | true     |
+| Property | Description | Type                      | Required | Default  |
+| -------- | ----------- | ------------------------- | -------- | -------- |
+| type     | 类型        | [`ShapeType`](#shapetype) | true     | -        |
+| left     | x 轴距离    | `number`                  | true     | 0        |
+| top      | y 轴距离    | `number`                  | true     | 0        |
+| zIndex   | 层叠顺序    | `number`                  | false    | 自身索引 |
+| visible  | 是否可见    | `boolean`                 | false    | true     |
 
 ### ShapeType
 

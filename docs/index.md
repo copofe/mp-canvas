@@ -19,6 +19,6 @@ features:
     details: 同步支持小程序和 web
   - title: 配置式写法
     details: Object/JSON 数据格式声明
-  - title: 对齐 Fabric
-    details: 可复用 Fabric 导出数据
+  - title: 极小体积
+    details: 压缩后仅不足4kb
 ---

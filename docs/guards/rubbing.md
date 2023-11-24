@@ -1,6 +1,6 @@
 # Rubbing
 
-可用于 web 和 小程序 的 cnavas 绘图工具，通过再实现 fabric loadFromJson 接口，复用 fabric 导出的 JSON 数据，保持多端绘制结果一致。
+可用于 web 和 小程序 的 cnavas 绘图工具，多端绘制结果一致。
 
 # Motivation
 
