@@ -64,7 +64,7 @@ export class Rubbing extends RObject<RubbingOptions> {
 
   radius?: number
 
-  dpr: number
+  dpr: number = 1
 
   canvas: CanvasElement
 
