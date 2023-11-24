@@ -9,10 +9,12 @@
 
 # 示例
 
+<ClientOnly>
 <canvas id="canvas"></canvas>
 
 <script>
-  import('/index.mjs').then(async ({ Rubbing }) => {
+if (!import.meta.env.SSR) {
+  import('https://unpkg.com/rubbing@latest/dist/index.mjs').then(async ({ Rubbing }) => {
     const rubbing = new Rubbing({
       selector: '#canvas',
       background: '#fff',
@@ -32,7 +34,9 @@
       ],
     })
   })
+}
 </script>
+</ClientOnly>
 
 ::: details Source Code
 
