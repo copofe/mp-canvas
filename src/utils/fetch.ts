@@ -16,6 +16,7 @@ export const loadImage = async (
         resolve({ img: image, width: image.width, height: image.height })
       }
       image.onerror = reject
+      image.setAttribute('crossorigin', 'anonymous');
       image.src = url
     } else {
       if (!canvas) {
