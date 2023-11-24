@@ -5,12 +5,6 @@ export default defineConfig({
   title: 'Rubbing',
   description: 'across platform canvas render tool',
   lang: 'zh-CN',
-  head: [
-    [
-      'script',
-      { async: '', src: 'https://unpkg.com/browse/rubbing@latest/dist/index.js' }
-    ]
-  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
