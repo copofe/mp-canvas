@@ -6,13 +6,13 @@
 | y1               | y 轴起点             | `number`         | true     | 0       |
 | x2               | x 轴终点             | `number`         | true     | 0       |
 | y2               | y 轴终点             | `number`         | true     | 0       |
-| stroke           | 描边颜色             | `string`         | -        |         |
-| strokeWidth      | 描边宽度             | `number`         | 1        |         |
-| strokeDashArray  | 描边点划线           | `number[]`       | -        |         |
-| strokeDashOffset | 描边点划线偏移       | `number`         | 0        |         |
-| strokeLineCap    | 开放自路径两端的形状 | `CanvasLineCap`  | -        |         |
-| strokeLineJoin   | 转角处形状           | `CanvasLineJoin` | -        |         |
-| strokeMiterLimit | 转角最大距离         | `number`         | 4        |         |
+| stroke           | 描边颜色             | `string`         | false    | -       |
+| strokeWidth      | 描边宽度             | `number`         | false    | 1       |
+| strokeDashArray  | 描边点划线           | `number[]`       | false    | -       |
+| strokeDashOffset | 描边点划线偏移       | `number`         | false    | 0       |
+| strokeLineCap    | 开放自路径两端的形状 | `CanvasLineCap`  | false    | -       |
+| strokeLineJoin   | 转角处形状           | `CanvasLineJoin` | false    | -       |
+| strokeMiterLimit | 转角最大距离         | `number`         | false    | 4       |
 
 # 示例
 
@@ -34,6 +34,7 @@ if (!import.meta.env.SSR) {
       objects: [
         {
           type: 'line',
+          stroke: '#7c3aed',
           x1: 0,
           y1: 100,
           x2: 300,
@@ -41,6 +42,7 @@ if (!import.meta.env.SSR) {
         },
         {
           type: 'line',
+          stroke: '#7c3aed',
           x1: 200,
           y1: 50,
           x2: 300,

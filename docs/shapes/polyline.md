@@ -4,13 +4,13 @@
 | ---------------- | -------------------- | --------------------------------------- | -------- | ------- |
 | points           | 点坐标               | `{x: number, y: number}[]`              | true     | -       |
 | fill             | 填充颜色             | `string` &#124; [`Gradient`](#gradient) | false    | -       |
-| stroke           | 描边颜色             | `string`                                | -        |         |
-| strokeWidth      | 描边宽度             | `number`                                | 1        |         |
-| strokeDashArray  | 描边点划线           | `number[]`                              | -        |         |
-| strokeDashOffset | 描边点划线偏移       | `number`                                | 0        |         |
-| strokeLineCap    | 开放自路径两端的形状 | `CanvasLineCap`                         | -        |         |
-| strokeLineJoin   | 转角处形状           | `CanvasLineJoin`                        | -        |         |
-| strokeMiterLimit | 转角最大距离         | `number`                                | 4        |         |
+| stroke           | 描边颜色             | `string`                                | false    | -       |
+| strokeWidth      | 描边宽度             | `number`                                | false    | 1       |
+| strokeDashArray  | 描边点划线           | `number[]`                              | false    | -       |
+| strokeDashOffset | 描边点划线偏移       | `number`                                | false    | 0       |
+| strokeLineCap    | 开放自路径两端的形状 | `CanvasLineCap`                         | false    | -       |
+| strokeLineJoin   | 转角处形状           | `CanvasLineJoin`                        | false    | -       |
+| strokeMiterLimit | 转角最大距离         | `number`                                | false    | 4       |
 
 # 示例
 
@@ -37,6 +37,7 @@ if (!import.meta.env.SSR) {
             { x: 0, y: 100 },
             { x: 200, y: 50 },
             { x: 300, y: 200 },
+            { x: 100, y: 230 },
           ]
         },
       ],
@@ -64,6 +65,7 @@ rubbing.loadFrom({
         { x: 0, y: 100 },
         { x: 200, y: 50 },
         { x: 300, y: 200 },
+        { x: 100, y: 230 },
       ],
     },
   ],

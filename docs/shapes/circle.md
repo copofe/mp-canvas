@@ -6,13 +6,13 @@
 | startAngle       | 起始角度             | `number`                                | true     | 0       |
 | endAngle         | 结束角度             | `number`                                | true     | 0       |
 | fill             | 填充颜色             | `string` &#124; [`Gradient`](#gradient) | false    | -       |
-| stroke           | 描边颜色             | `string`                                | -        |         |
-| strokeWidth      | 描边宽度             | `number`                                | 1        |         |
-| strokeDashArray  | 描边点划线           | `number[]`                              | -        |         |
-| strokeDashOffset | 描边点划线偏移       | `number`                                | 0        |         |
-| strokeLineCap    | 开放自路径两端的形状 | `CanvasLineCap`                         | -        |         |
-| strokeLineJoin   | 转角处形状           | `CanvasLineJoin`                        | -        |         |
-| strokeMiterLimit | 转角最大距离         | `number`                                | 4        |         |
+| stroke           | 描边颜色             | `string`                                | false    | -       |
+| strokeWidth      | 描边宽度             | `number`                                | false    | 1       |
+| strokeDashArray  | 描边点划线           | `number[]`                              | false    | -       |
+| strokeDashOffset | 描边点划线偏移       | `number`                                | false    | 0       |
+| strokeLineCap    | 开放自路径两端的形状 | `CanvasLineCap`                         | false    | -       |
+| strokeLineJoin   | 转角处形状           | `CanvasLineJoin`                        | false    | -       |
+| strokeMiterLimit | 转角最大距离         | `number`                                | false    | 4       |
 
 # 示例
 

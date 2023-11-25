@@ -67,7 +67,7 @@
 colorStops.offset 数值范围 0 ~ 1
 :::
 
-例：
+#### 示例：
 
 ```ts
 {
