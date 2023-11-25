@@ -10,7 +10,8 @@
 # 示例
 
 <ClientOnly>
-<canvas id="canvas"></canvas>
+  <canvas id="canvas"></canvas>
+</ClientOnly>
 
 <script>
 if (!import.meta.env.SSR) {
@@ -37,7 +38,6 @@ if (!import.meta.env.SSR) {
   })
 }
 </script>
-</ClientOnly>
 
 ::: details Source Code
 

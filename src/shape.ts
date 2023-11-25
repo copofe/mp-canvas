@@ -10,9 +10,9 @@ export class RShape<
   width = 0
   height = 0
   opacity = 1
-  stroke = null
+  stroke: string
   strokeWidth = 1
-  strokeDashArray = null
+  strokeDashArray: number[]
   strokeDashOffset = 0
   fill = undefined
   visible = true
@@ -20,9 +20,9 @@ export class RShape<
   shadow: Shadow
   paintFirst: 'fill' | 'stroke'
   fillRule: 'evenodd'
-  strokeLineCap: CanvasLineCap
+  strokeLineCap: CanvasLineCap = 'butt'
   strokeLineJoin: CanvasLineJoin
-  strokeMiterLimit: number
+  strokeMiterLimit: number = 4
   strokeUniform: boolean
 
   canvas?: CanvasElement
@@ -57,8 +57,43 @@ export class RShape<
     ctx.restore()
   }
 
+  _setStrokeStyles(ctx: CanvasRenderingContext2D, shape: this) {
+    if (shape.stroke) {
+      if (typeof shape.stroke === 'string') {
+        ctx.strokeStyle = shape.stroke
+      } else {
+        ctx.strokeStyle = new Gradient(this.new(shape.stroke)).toLive(ctx)
+      }
+      ctx.lineDashOffset = shape.strokeDashOffset
+      ctx.miterLimit = shape.strokeMiterLimit
+      ctx.lineJoin = shape.strokeLineJoin
+      ctx.lineCap = shape.strokeLineCap
+      ctx.lineWidth = shape.strokeWidth
+    }
+  }
+
+  _setLineDash(ctx: CanvasRenderingContext2D, dashArray?: number[] | null) {
+    if (!dashArray || dashArray.length === 0) {
+      return
+    }
+    // Spec requires the concatenation of two copies of the dash array when the number of elements is odd
+    if (1 & dashArray.length) {
+      dashArray.push(...dashArray)
+    }
+    ctx.setLineDash(dashArray)
+  }
+
   _renderStroke(ctx: CanvasRenderingContext2D) {
-    // TODO:
+    if (!this.stroke || this.strokeWidth === 0) {
+      return
+    }
+
+    ctx.save()
+
+    this._setLineDash(ctx, this.strokeDashArray)
+    this._setStrokeStyles(ctx, this)
+    ctx.stroke()
+    ctx.restore()
   }
 
   _renderPaintInOrder(ctx: CanvasRenderingContext2D) {

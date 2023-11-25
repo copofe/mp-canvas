@@ -194,45 +194,41 @@ export interface FillStrokeProps {
   /**
    * When defined, an object is rendered via stroke and this property specifies its color
    * takes css colors https://www.w3.org/TR/css-color-3/
-   * @default null
    */
-  // stroke: string | null
+  stroke?: string
 
   /**
    * Width of a stroke used to render this object
    * @default 1
    */
-  // strokeWidth: number
+  strokeWidth?: number
 
   /**
    * Array specifying dash pattern of an object's stroke (stroke must be defined)
-   * @default null;
    */
-  // strokeDashArray: number[] | null
+  strokeDashArray?: number[]
 
   /**
    * Line offset of an object's stroke
    * @default 0
    */
-  // strokeDashOffset: number
+  strokeDashOffset?: number
 
   /**
    * Line endings style of an object's stroke (one of "butt", "round", "square")
-   * @default butt
    */
-  // strokeLineCap: CanvasLineCap
+  strokeLineCap?: CanvasLineCap
 
   /**
    * Corner style of an object's stroke (one of "bevel", "round", "miter")
-   * @default
    */
-  // strokeLineJoin: CanvasLineJoin
+  strokeLineJoin?: CanvasLineJoin
 
   /**
    * Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
    * @default 4
    */
-  // strokeMiterLimit: number
+  strokeMiterLimit?: number
 
   /**
    * 当 false 时，stroke宽度将用对象扩展。

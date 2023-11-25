@@ -1,16 +1,24 @@
 # 直线
 
-| Property | Description | Type                                    | Required | Default |
-| -------- | ----------- | --------------------------------------- | -------- | ------- |
-| x1       | x 轴起点    | `number`                                | true     | 0       |
-| y1       | y 轴起点    | `number`                                | true     | 0       |
-| x2       | x 轴终点    | `number`                                | true     | 0       |
-| y2       | y 轴终点    | `number`                                | true     | 0       |
+| Property         | Description          | Type             | Required | Default |
+| ---------------- | -------------------- | ---------------- | -------- | ------- |
+| x1               | x 轴起点             | `number`         | true     | 0       |
+| y1               | y 轴起点             | `number`         | true     | 0       |
+| x2               | x 轴终点             | `number`         | true     | 0       |
+| y2               | y 轴终点             | `number`         | true     | 0       |
+| stroke           | 描边颜色             | `string`         | -        |         |
+| strokeWidth      | 描边宽度             | `number`         | 1        |         |
+| strokeDashArray  | 描边点划线           | `number[]`       | -        |         |
+| strokeDashOffset | 描边点划线偏移       | `number`         | 0        |         |
+| strokeLineCap    | 开放自路径两端的形状 | `CanvasLineCap`  | -        |         |
+| strokeLineJoin   | 转角处形状           | `CanvasLineJoin` | -        |         |
+| strokeMiterLimit | 转角最大距离         | `number`         | 4        |         |
 
 # 示例
 
 <ClientOnly>
-<canvas id="canvas"></canvas>
+  <canvas id="canvas"></canvas>
+</ClientOnly>
 
 <script>
 if (!import.meta.env.SSR) {
@@ -43,7 +51,6 @@ if (!import.meta.env.SSR) {
   })
 }
 </script>
-</ClientOnly>
 
 ::: details Source Code
 

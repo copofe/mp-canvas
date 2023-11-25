@@ -1,13 +1,22 @@
 # 多边形
 
-| Property | Description | Type                       | Required | Default |
-| -------- | ----------- | -------------------------- | -------- | ------- |
-| points   | 点坐标      | `{x: number, y: number}[]` | true     | -       |
+| Property         | Description          | Type                                    | Required | Default |
+| ---------------- | -------------------- | --------------------------------------- | -------- | ------- |
+| points           | 点坐标               | `{x: number, y: number}[]`              | true     | -       |
+| stroke           | 描边颜色             | `string`                                | -        |         |
+| fill             | 填充颜色             | `string` &#124; [`Gradient`](#gradient) | false    | -       |
+| strokeWidth      | 描边宽度             | `number`                                | 1        |         |
+| strokeDashArray  | 描边点划线           | `number[]`                              | -        |         |
+| strokeDashOffset | 描边点划线偏移       | `number`                                | 0        |         |
+| strokeLineCap    | 开放自路径两端的形状 | `CanvasLineCap`                         | -        |         |
+| strokeLineJoin   | 转角处形状           | `CanvasLineJoin`                        | -        |         |
+| strokeMiterLimit | 转角最大距离         | `number`                                | 4        |         |
 
 # 示例
 
 <ClientOnly>
-<canvas id="canvas"></canvas>
+  <canvas id="canvas"></canvas>
+</ClientOnly>
 
 <script>
 if (!import.meta.env.SSR) {
@@ -37,7 +46,6 @@ if (!import.meta.env.SSR) {
   })
 }
 </script>
-</ClientOnly>
 
 ::: details Source Code
 

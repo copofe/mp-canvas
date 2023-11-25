@@ -17,7 +17,7 @@ export class Line extends RShape<LineProps> {
     ctx.beginPath()
     ctx.moveTo(this.xDpr(x1), this.xDpr(y1)) // move pen to starting point
     ctx.lineTo(this.xDpr(x2), this.xDpr(y2)) // draw line to end point
-    // TODO: enhance stroke style
-    ctx.stroke() // draw the line
+    this._renderPaintInOrder(ctx)
+    // ctx.stroke()
   }
 }

@@ -11,9 +11,6 @@ export class Polyline extends RShape<PolygonProps> {
 
   /**
    * Checks if the polyline is open.
-   * A polyline is considered open if it has no points, or if the last point's y-coordinate is NaN.
-   * NaN comes from parseFloat of an empty string in the parser.
-   * @returns {boolean} True if the polyline is open, false otherwise.
    */
   isOpen() {
     return true
@@ -21,14 +18,12 @@ export class Polyline extends RShape<PolygonProps> {
 
   /**
    * Renders the polyline on a canvas.
-   * @param {CanvasRenderingContext2D} ctx The context of the canvas to render on.
    */
   render(ctx: CanvasRenderingContext2D) {
     const len = this.points.length
 
-    // Do not draw if there are no points or odd number of points
-    // NaN comes from parseFloat of an empty string in the parser
-    if (!len || isNaN(this.points[len - 1].y)) {
+    // Do not draw if there are no points
+    if (!len) {
       return
     }
 
