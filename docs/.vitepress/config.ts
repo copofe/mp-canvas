@@ -6,6 +6,7 @@ export default defineConfig({
   description: 'across platform canvas render tool',
   lang: 'zh-CN',
   themeConfig: {
+    logo: '/rubbing.svg',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '指南', link: '/guards/rubbing' },

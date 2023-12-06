@@ -6,6 +6,9 @@ hero:
   name: Rubbing
   text: 跨端 canvas 图片绘制
   tagline: "轻量，跨端，易用"
+  image:
+    src: /rubbing.svg
+    alt: Rubbing
   actions:
     - theme: brand
       text: 快速开始
