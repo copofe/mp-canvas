@@ -1,4 +1,3 @@
-import { OutputOptions } from 'rollup'
 import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
