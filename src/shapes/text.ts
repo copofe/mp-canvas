@@ -13,7 +13,7 @@ export class Text extends RShape<TextProps> {
   textBaseline: CanvasTextBaseline = 'top' // text baseline
   fontStyle = 'normal' // font style
   lineHeight = 14 // line height for the text
-  charSpacing = 0 // TODO: character spacing for text
+  charSpacing = 0
   direction: CanvasDirection = 'ltr' // TODO: text direction
   lineClamp = 0 // maximum number of lines to display, if overflow and value is Greater than zero, ellipsis will be displayed
 
@@ -35,6 +35,7 @@ export class Text extends RShape<TextProps> {
     ctx.font = `${this.fontWeight} ${this.xDpr(this.fontSize)}px ${
       this.fontFamily
     }`
+    ctx.letterSpacing = `${this.charSpacing}px`
     ctx.textBaseline = 'top'
     ctx.textAlign = this.textAlign
     ctx.direction = this.direction
